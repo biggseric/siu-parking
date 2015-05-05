@@ -3,12 +3,15 @@ package com.example.picchietti.parkingapp;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
+
+    static final LatLng SIUC = new LatLng(37.713, -89.217);
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -17,12 +20,15 @@ public class MapsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(SIUC));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(SIUC));
     }
 
     /**
