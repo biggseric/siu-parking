@@ -9,7 +9,10 @@
     <TextView android:text="@string/directions"
         android:id="@+id/directions"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <RelativeLayout
         android:id="@+id/choices"
@@ -18,36 +21,86 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/directions">
 
-        <View android:id="@+id/red"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/red" />
+        <RelativeLayout
+            android:id="@+id/gold"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="24dp"
+            android:background="@drawable/yellow">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yellow"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <View android:id="@+id/green"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/red"
-            android:background="@drawable/green" />
+        <RelativeLayout
+            android:id="@+id/gray"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="114dp"
+            android:layout_marginLeft="110dp"
+            android:background="@drawable/gray">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visitor"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <View android:id="@+id/blue"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/red"
-            android:background="@drawable/blue" />
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/green"
+            android:background="@drawable/green"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="195dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Green"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <View android:id="@+id/gold"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/green"
-            android:layout_below="@id/blue"
-            android:background="@drawable/gold" />
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/red"
+            android:background="@drawable/red"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="24dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Red"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/blue"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/blue"
+            android:layout_marginLeft="195dp"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blue"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
-<!---->
 
 </RelativeLayout>

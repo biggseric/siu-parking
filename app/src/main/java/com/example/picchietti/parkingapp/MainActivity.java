@@ -1,6 +1,7 @@
 package com.example.picchietti.parkingapp;
 
 import android.content.DialogInterface;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -11,17 +12,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RelativeLayout relLayout = (RelativeLayout) findViewById(R.id.choices);
-        String[] colors = {"Red","Green","Blue","Gold"};
-        int[] drawables = {R.drawable.red, R.drawable.green, R.drawable.blue, R.drawable.gold};
+        String[] colors = {"Red","Green","Blue","Yellow","Gray"};
         for(int i=0, y=colors.length;i<y;i++){
             View view = relLayout.getChildAt(i);
             view.setTag(colors[i]);
@@ -35,37 +36,14 @@ public class MainActivity extends ActionBarActivity {
                     editor.commit();
 
                     // Here is an example of accessing the sticker color.
-                    Log.d("sticker",settings.getString("sticker",""));
+                    Log.d("sticker", settings.getString("sticker", ""));
 
                     // Go to the next Activity.
-                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                     startActivity(intent);
                 }
             });
         }
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
