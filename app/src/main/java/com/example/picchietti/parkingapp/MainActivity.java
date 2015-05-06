@@ -11,11 +11,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity {
+
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,38 @@ public class MainActivity extends Activity {
                 }
             });
         }
+
+        addSpinnerItems();
+        addListenerOnSpinnerItemSelection();
+
+    }
+
+    private void addSpinnerItems(){
+        spinner = (Spinner) findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("Student Center");
+        list.add("Faner");
+        list.add("Morris Library");
+        list.add("Agriculture");
+        list.add("Pulliam");
+        list.add("Engineering");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+    }
+
+    public void addListenerOnSpinnerItemSelection() {
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new SpinnerItemSelectedListener());
+    }
+
+    // get the selected dropdown list value
+    public void addListenerOnButton() {
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+//        "\nSpinner 1 : " + String.valueOf(spinner1.getSelectedItem())
+//        "\nSpinner 2 : " + String.valueOf(spinner2.getSelectedItem())
 
     }
 }
